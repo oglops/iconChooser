@@ -19,8 +19,8 @@ __status__ = "totally fucked up"
 from PyQt4 import uic
 
 import sip
-sip.setapi('QString', 2)
-sip.setapi('QVariant', 2)
+# sip.setapi('QString', 2)
+# sip.setapi('QVariant', 2)
 
 from PyQt4.QtGui import *  
 from PyQt4.QtCore import *  
@@ -249,7 +249,7 @@ class Window(form_class, base_class):
     @pyqtSlot(QModelIndex)
     def selectIcon(self,index):
         name = index.model().data(index,Qt.ToolTipRole)
-        self.label.setText(name)
+        self.label.setText(name.toPyObject())
 
 
     @pyqtSlot(str)
