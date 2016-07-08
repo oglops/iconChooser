@@ -11,7 +11,7 @@ __author__ = "Jiang Han"
 __copyright__ = "有版权么"
 __credits__ = ["Nathan Horne"]
 __license__ = "抄袭"
-__version__ = "0.0.5"
+__version__ = "0.0.6"
 __maintainer__ = "Jiang Han"
 __email__ = "oglops@gmail.com"
 __status__ = "totally fucked up"
@@ -114,10 +114,11 @@ def toQtObject(mayaName):
 
 class IconDelegate(QStyledItemDelegate):
 
-    def __init__(self,iconDir, icons,parent=None):
+    def __init__(self,iconDir, icons,model,parent=None):
         super(IconDelegate, self).__init__(parent)
         self.icons = icons
         self.iconDir = iconDir
+        self.model=model
                 
     def paint(self, painter, option, index):
         
@@ -125,6 +126,7 @@ class IconDelegate(QStyledItemDelegate):
             painter.fillRect(option.rect, option.palette.highlight())
         
         painter.save()
+        index=self.model.mapToSource(index)
         if self.iconDir=='Internal Icons':
             png = ':/%s' % self.icons[index.row()]
         else:
@@ -260,7 +262,7 @@ class Window(form_class, base_class):
                                     QRegExp.RegExp
                                     )
         self.proxyModel.setFilterRegExp(search)
-#        print 'search result:',self.proxyModel.rowCount()
+        # print 'search result:',self.proxyModel.rowCount()
 
     @pyqtSlot(str)
     def initialize(self):
@@ -284,7 +286,7 @@ class Window(form_class, base_class):
         self.listView.setModel(self.proxyModel)
         self.listView.setViewMode(QListView.IconMode)
         
-        self.delegate = IconDelegate(self.curIconPath,self.curAllIcons)
+        self.delegate = IconDelegate(self.curIconPath,self.curAllIcons,self.proxyModel)
         self.listView.setItemDelegate(self.delegate)
         
         self.lineEdit.editingFinished.connect(self.on_lineEdit_textChanged)
