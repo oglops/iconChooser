@@ -8,7 +8,9 @@ this is used to get icon names ( both maya internal icons which you won't be abl
 
 you can type icon names in the QLineEdit search box to search ( re supported i guess becuase it's a QCompleter )
 
-i also want to drag an icon from my ui to shelf , or to an existing shelfButton, but don't know how to do that.
+To do list
+* drag an icon from my ui to shelf , or to an existing shelfButton
+* search all non-empty icon folders, maybe add all subdirectories as well
 
 pyqt4 needed.
 
