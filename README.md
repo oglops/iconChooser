@@ -14,7 +14,7 @@ To do list
 
 pyqt4 needed.
 
-This is moved from [creativecrash](http://www.creativecrash.com/maya/script/maya-icon-chooser).
+This was originally posted on [creativecrash](http://www.creativecrash.com/maya/script/maya-icon-chooser).
 
 
 Usage
@@ -37,8 +37,8 @@ you can run the following [to generate DLFCN.py](http://forums.bodhilinux.com/in
 
 release history
 ------------------
-ver 0.0.2 updated to support maya 2014 , and speed up by using qlabel
-ver 0.0.3 center dispaly icons and not scale them up
-ver 0.0.4 fix large icons not scaled down bug, now < 32 pixel icons will be kept to original size,  > 32 pixel width large .png images will be scaled to 32*32
-ver 0.0.5 use api v2, new style signal/slot, cleanup code
-ver 0.0.6 fallback to api v1
+- ver 0.0.6 fallback to api v1
+- ver 0.0.5 use api v2, new style signal/slot, cleanup code
+- ver 0.0.4 fix large icons not scaled down bug, now < 32 pixel icons will be kept to original size,  > 32 pixel width large .png images will be scaled to 32*32
+- ver 0.0.3 center dispaly icons and not scale them up
+- ver 0.0.2 updated to support maya 2014 , and speed up by using qlabel
